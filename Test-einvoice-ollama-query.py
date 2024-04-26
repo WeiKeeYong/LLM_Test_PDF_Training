@@ -29,7 +29,7 @@ def query_rag(query_text: str, db):
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text, dt_now=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    #model = Ollama(base_url='http://127.0.0.1:11434', model="mistral")
+    #model = Ollama(base_url='http://127.0.0.1:11434', model="mistral") #use this if calling local pc ollama
     model = Ollama(base_url='http://34.132.82.86:11434',model="llama3") #wizardlm2,llama3,llama3:text,phi3
     response_text = model.invoke(prompt)
     sources = [doc.metadata.get("id", None) for doc, _score in results]

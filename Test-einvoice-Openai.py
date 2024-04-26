@@ -32,7 +32,7 @@ def read_api_key_from_file(file_path, start_with):
         sys.exit(1)  # Exit with error code 1 if key not found
 
 
-assistant_id = read_api_key_from_file('keys.txt','OPENAPI_ASSISTANT:')
+assistant_id = read_api_key_from_file('keys.txt','OPENAPI_ASSISTANT:')  # put in the OpenAI assistant Key
 client = OpenAI(api_key=read_api_key_from_file('keys.txt','OPENAPI:'))
 
 def remove_all_threads():
